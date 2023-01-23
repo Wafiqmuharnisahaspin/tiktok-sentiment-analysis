@@ -21,6 +21,10 @@ Repo ini berisi file-file Tugas Project Data Mining sentimen analisis review apl
 </a>
 <br>
 
+## Datasets
+
+- [TikTok - Google Play Store Review](https://www.kaggle.com/datasets/shivkumarganesh/tiktok-google-play-store-review) - This dataset belongs to the TikTok app available on the Google Play Store. The Dataset mostly has user reviews and the various comments made by the users.
+
 ## Contact
 
 <a href="https://twitter.com/libra_enisda">
