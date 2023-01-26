@@ -4,24 +4,9 @@
 
 Repository ini berisi semua file yang dibutuhkan untuk melakukan deployment model Machine Learning Regresi Linier. Adapun model yang digunakan merupakan model untuk memprediksi biaya asuransi berdasarkan:
 
--   `Age` atau usia dengan tipe data integer (bilangan bulat)
--   `Sex` atau jenis kelamin yakni `Male` atau `Female`
--   `Smoker` atau status perokok yakni `Yes` atau `No`
-
 #
 
 ## Sekilas mengenai input model
-
-Agar dapat memprediksi biaya asuransi, data input model harus mengikuti format sebagai berikut:\
-`[Age, Sex(Female), Sex(Male), Smoker(No), Smoker(Yes)]`
-
-Sebagai contoh:\
-Age: 20\
-Sex: Male\
-Smoker: No
-
-Akan diubah menjadi:\
-`[20, 0, 1, 1, 0]`
 
 #
 
@@ -40,16 +25,6 @@ Akan diubah menjadi:\
 
 ### Menjalankan API
 
-1. Pastikan Anda sudah menginstall Anaconda
-1. Buka terminal/command prompt/power shell
-1. Buat virtual environment dengan\
-   `conda create -n <nama-environment> python=3.9`
-1. Aktifkan virtual environment dengan\
-   `conda activate <nama-environment>`
-1. Install semua dependency/package Python dengan\
-   `pip install -r requirements.txt`
-1. Jalankan API menggunakan perintah\
-   `python app.py`
 
 ### Akses melalui Website
 
