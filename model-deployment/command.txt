@@ -1,0 +1,5 @@
+conda create --name deploy-sentiment-analysis-model python=3.9
+
+conda activate deploy-sentiment-analysis-model
+
+pip install -r requirements.txt
