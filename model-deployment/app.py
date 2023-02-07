@@ -1,29 +1,23 @@
-from flask import Flask, render_template, request
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.metrics import accuracy_score
-from nltk.sentiment import SentimentIntensityAnalyzer
+from flask import Flask, request, jsonify
+import pickle
 
 app = Flask(__name__)
 
-# Load the model and vectorizer
-clf = MultinomialNB()
-cv = CountVectorizer()
-sia = SentimentIntensityAnalyzer()
-
-# Train the model with the training data
-X_train_vect = cv.fit_transform(X_train)
-clf.fit(X_train_vect, y_train)
+# Load the model
+model = pickle.load(open("sentiment_analysis_model.pkl", "rb"))
 
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-
-@app.route('/predict', methods=['POST'])
+@app.route("/predict", methods=["POST"])
 def predict():
-    review = request.form['review']
-    review_vect = cv.transform([review])
-    sentiment = clf.predict(review_vect)
-    sentiment_proba = clf
+    # Get the data from the request
+    data = request.get_json(force=True)
+
+    # Make a prediction using the model
+    prediction = model.predict(data)
+
+    # Return the prediction result
+    return jsonify(prediction)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)

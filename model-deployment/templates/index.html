@@ -1,79 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
-    <title>Sentimen Analisis Review TikTok</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Model</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #004643;
+            font-family: 'Poppins', sans-serif;
+            color: #fffffe;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 100px;
+        }
+
+        h1 {
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 50%;
+            background-color: #fffffe;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #dddddd;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            font-size: 18px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: none;
+            resize: none;
+        }
+
+        .btn {
+            background-color: #f9bc60;
+            color: #001e1d;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #fffffe;
+            color: #f9bc60;
+            box-shadow: 0px 0px 10px #f9bc60;
+        }
+    </style>
 </head>
 
-<body class="
-            flex flex-col
-            justify-between
-            item-center
-            p-8
-            min-h-screen
-            bg-gradient-to-r
-            from-green-400
-            to-blue-500
-            text-gray-800
-            md:flex-row
-        ">
-    <main class="bg-white p-16 rounded-lg">
-        <h1 class="text-3xl font-bold mb-8">
-            Sentimen Analisis Review Tik Tok di Play Store
-        </h1>
-
-        <form action="{{ url_for('predict') }}" method="post" class="flex flex-col">
-            <label for="sentimen" class="mb-2">Sentimen</label>
-            <input type="text" name="sentiment" placeholder="sentiment" required="required"
-                class="p-4 bg-gray-100 rounded-md" />
-
-            <button type="submit" class="
-                        flex
-                        justify-center
-                        align-center
-                        mt-8
-                        p-4
-                        bg-gradient-to-r
-                        from-green-400
-                        to-blue-500
-                        text-white
-                        rounded-md
-                    ">
-                PREDIKSI SEKARANG
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="feather feather-arrow-right ml-4">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-            </button>
-        </form>
-    </main>
-    <section class="mt-8 h-full flex-auto rounded-lg md:mt-0 md:ml-8">
-        <div class="bg-white p-16 rounded-lg">
-            <h1 class="text-2xl mb-8">
-                Estimasi biaya asuransi Anda adalah
-            </h1>
-            <h2 class="text-5xl font-bold">USD {{ insurance_cost }}</h2>
-            {% if (insurance_cost) != 0 %}
-            <div class="mt-8">
-                <p>Usia: {{ age }} tahun</p>
-                <p>Jenis kelamin: {{ sex }}</p>
-                <p>Status perokok: {{ smoker }}</p>
-            </div>
-            {% endif %}
+<body>
+    <div class="container">
+        <h1>Sentiment Analysis Model</h1>
+        <div class="form-group">
+            <textarea id="text-input" placeholder="Enter your text here"></textarea>
+            <button class="btn" id="predict-button">Predict</button>
         </div>
-        <div class="flex justify-around bg-white p-16 rounded-lg mt-8">
-            <img class="h-24 md:h-28" src="https://digitalent.kominfo.go.id/assets/@images/logo.png" alt="logo-dts" />
-            <img class="h-24 md:h-28"
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo_of_Ministry_of_Communication_and_Information_Technology_of_the_Republic_of_Indonesia.svg/604px-Logo_of_Ministry_of_Communication_and_Information_Technology_of_the_Republic_of_Indonesia.svg.png"
-                alt="logo-kominfo" />
-        </div>
-    </section>
+    </div>
 </body>
 
 </html>
